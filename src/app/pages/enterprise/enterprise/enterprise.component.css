@@ -1,0 +1,22 @@
+.card{
+    height: 300px !important; margin: 10px;  background-color: #69f0ae;
+}
+.card-title{
+    text-decoration: none; 
+    color: black
+}
+
+.card-image{
+    max-height: 250px;
+}
+.button{
+    margin: 1px;
+    height: 40px
+}
+.form{
+    height: 80px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-left: 50px;
+}

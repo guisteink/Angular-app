@@ -1,0 +1,60 @@
+<div class="content">
+    <div fxLayoutGap="grid">
+        <mat-grid-list cols="2" rowHeight="150px">
+            <mat-grid-tile>
+                <mat-form-field color="warn" appearance="outline">
+                    <mat-label>Search Client</mat-label>
+                    <input matInput type="text" placeholder="Placeholder" [(ngModel)]="name">
+                    <button class="button" mat-flat-button color="warn" (click)="SearchByName()">Search</button>
+                    <button class="button" mat-flat-button color="warn" (click)="clearFields()">X</button>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button (click)="getTotals()" class="button" mat-flat-button color="warn">
+                    <span *ngIf="flag===true">Totals</span>
+                    <span *ngIf="flag===false">Clients</span>
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+    <div *ngIf="flag===false" fxLayout="row wrap" fxLayoutGap="grid">
+
+        <mat-card class="mat-elevation-z4 card">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>Client totals: {{totalClients}}</h3>
+                </mat-card-title>
+            </mat-card-header>
+        </mat-card>
+        <mat-card class="mat-elevation-z4 card">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>Enterprise totals: {{totalEnterprises}}</h3>
+                </mat-card-title>
+            </mat-card-header>
+        </mat-card>
+        <mat-card class="mat-elevation-z4 card">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>Realties totals: {{totalRealties}}</h3>
+                </mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+    <div *ngIf="flag===true" fxLayout="row wrap" fxLayoutGap="grid">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let client of clients">
+            <mat-card class="mat-elevation-z4 card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <a href="/client/{{client._id}}" class="card-title">{{client.name}}</a>
+                    </mat-card-title>
+                    <mat-card-subtitle class="card-title">Enterprises: {{client.enterprises.length}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{client.image_src}}">
+            </mat-card>
+        </div>
+    </div>
+</div>

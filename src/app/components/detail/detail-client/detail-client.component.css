@@ -1,0 +1,35 @@
+.container{
+  margin-top: 5px
+}
+
+.content{
+  width:95%
+}
+
+.card{
+  background-color: white; 
+  height: 250px !important; 
+  margin: 10px
+}
+
+.card-title{
+  text-decoration: none; color: black
+}
+
+.card-image{
+  max-height:200px; 
+  max-width: 175px;
+}
+
+.button{
+    margin: 1px;
+    height: 40px
+}
+
+.form{
+    height: 80px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-left: 50px;
+}
